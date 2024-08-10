@@ -19,7 +19,7 @@ go mod download
 go run main.go
 ```
 ## 4. Send request
-#### Create asset 
+#### Create asset123
 ```
 curl --request POST \
   --url http://localhost:3000/invoke \
