@@ -16,7 +16,6 @@ cd test-network
 ```
 
 ## 3. Register identities with attributes
-```
 #### Set environment variables
 ```
 export PATH=${PWD}/../bin:${PWD}:$PATH
