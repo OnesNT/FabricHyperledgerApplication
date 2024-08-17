@@ -59,7 +59,7 @@ curl --request POST \
   --data args=Asset123 \
   --data args=yellow \
   --data args=54 \
-  --data args=Tom
+  --data args=2
 ```
 
 #### Get query123 from ledger 
@@ -78,7 +78,7 @@ curl --request PUT \
   --data args=Asset123 \
   --data args=green \
   --data args=20 \
-  --data args=Quang
+  --data args=1
 ```
 
 #### Delete asset123 in ledger
