@@ -25,7 +25,10 @@ func Serve(setups OrgSetup) {
 	http.HandleFunc("/query", setups.Query)
 	http.HandleFunc("/invoke", setups.Invoke)
 	http.HandleFunc("/update", setups.Update)
-	// http.HandleFunc("/delete", setups.Delete)
+	// http.HandleFunc("/createUser", setups.CreateUserHandler)
+	// http.HandleFunc("/register", setups.RegisterUserHandler) // Register route
+	// http.HandleFunc("/enroll", setups.EnrollUserHandler)     // Enroll route
+	http.HandleFunc("/delete", setups.Delete)
 	http.HandleFunc("/transfer", setups.Transfer)
 	fmt.Println("Listening (http://localhost:3000/)...")
 	if err := http.ListenAndServe(":3000", nil); err != nil {
