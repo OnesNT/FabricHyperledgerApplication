@@ -162,7 +162,7 @@ func EnrollUserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Copy IssuerPublicKey, IssuerRevocationPublicKey, and config.yaml from Orderer's MSP directory
-	srcOrdererMSPDir := "/Users/ngokuang/golang/src/fabric-samples/test-network/organizations/ordererOrganizations/example.com/msp"
+	srcOrdererMSPDir := "../../test-network/organizations/ordererOrganizations/example.com/msp"
 	destMSPDir := userMSPDir
 
 	// Copy IssuerPublicKey
