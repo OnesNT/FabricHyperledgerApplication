@@ -1,0 +1,39 @@
+package web
+
+import (
+	"fmt"
+	"net/http"
+
+	"rest-api-go/user"
+
+	"github.com/hyperledger/fabric-gateway/pkg/client"
+)
+
+// OrgSetup contains organization's config to interact with the network.
+type OrgSetup struct {
+	OrgName      string
+	MSPID        string
+	CryptoPath   string
+	CertPath     string
+	KeyPath      string
+	TLSCertPath  string
+	PeerEndpoint string
+	GatewayPeer  string
+	Gateway      client.Gateway
+}
+
+// Serve starts http web server.
+func Serve(setups OrgSetup) {
+	http.HandleFunc("/query", setups.Query)
+	http.HandleFunc("/invoke", setups.Invoke)
+	http.HandleFunc("/update", setups.Update)
+	// http.HandleFunc("/createUser", setups.CreateUserHandler)
+	http.HandleFunc("/register", user.RegisterUserHandler) // Register route
+	http.HandleFunc("/enroll", user.EnrollUserHandler)     // Enroll route
+	http.HandleFunc("/delete", setups.Delete)
+	http.HandleFunc("/transfer", setups.Transfer)
+	fmt.Println("Listening (http://localhost:3000/)...")
+	if err := http.ListenAndServe(":3000", nil); err != nil {
+		fmt.Println(err)
+	}
+}
