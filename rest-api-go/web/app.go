@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"rest-api-go/user"
+
 	"github.com/hyperledger/fabric-gateway/pkg/client"
 )
 
@@ -26,8 +28,8 @@ func Serve(setups OrgSetup) {
 	http.HandleFunc("/invoke", setups.Invoke)
 	http.HandleFunc("/update", setups.Update)
 	// http.HandleFunc("/createUser", setups.CreateUserHandler)
-	// http.HandleFunc("/register", setups.RegisterUserHandler) // Register route
-	// http.HandleFunc("/enroll", setups.EnrollUserHandler)     // Enroll route
+	http.HandleFunc("/register", user.RegisterUserHandler) // Register route
+	http.HandleFunc("/enroll", user.EnrollUserHandler)     // Enroll route
 	http.HandleFunc("/delete", setups.Delete)
 	http.HandleFunc("/transfer", setups.Transfer)
 	fmt.Println("Listening (http://localhost:3000/)...")

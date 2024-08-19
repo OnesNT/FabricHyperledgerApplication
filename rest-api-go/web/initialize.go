@@ -73,7 +73,7 @@ func (setup OrgSetup) newIdentity() *identity.X509Identity {
 	return id
 }
 
-// // newSign creates a function that generates a digital signature from a message digest using a private key.
+// newSign creates a function that generates a digital signature from a message digest using a private key.
 // func (setup OrgSetup) newSign() identity.Sign {
 // 	files, err := os.ReadDir(setup.KeyPath)
 // 	if err != nil {
@@ -95,11 +95,8 @@ func (setup OrgSetup) newIdentity() *identity.X509Identity {
 // 		panic(err)
 // 	}
 
-// 	return sign
-// }
-
-// newSign creates a function that generates a digital signature from a message digest using a private key.
-// newSign creates a function that generates a digital signature from a message digest using a private key.
+//		return sign
+//	}
 func (setup OrgSetup) newSign() identity.Sign {
 	files, err := os.ReadDir(setup.KeyPath)
 	if err != nil {
